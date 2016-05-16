@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.raon.lee.im" >
+
+    <!-- [START http_permission] -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- [END http_permission] -->
+
+
+    <!-- [START gcm_permission] -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- [END gcm_permission] -->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.raon.im.application.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name="com.raon.im.application.SplashActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name="com.raon.im.application.AppLockActivity"
+            android:label="Im">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.raon.im.application.LoginActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name="com.raon.im.application.CheckCurrentAppPWActivity"
+            android:label="Im" >
+        </activity>
+        <activity
+            android:name="com.raon.im.application.SetNewAppPWActivity"
+            android:label="Im">
+        </activity>
+        <activity
+            android:name="com.raon.im.application.CheckNewAppPWActivity"
+            android:label="Im">
+        </activity>
+        <activity
+            android:name="com.raon.im.application.ModifyDataActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name="com.raon.im.application.SignupActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name="com.raon.im.application.CompanyListActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name="com.raon.im.application.PermissionListActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name="com.raon.im.application.TabMainActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name="com.raon.im.application.OptionActivity"
+            android:label="@string/app_name">
+        </activity>
+
+        <!-- [START gc_alertdialogactivity] -->
+        <activity
+            android:name="com.raon.im.gcm.GcmPopupActivity"
+            android:label="Im"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Material.Dialog.Alert" >
+        </activity>
+        <!-- [END gc_alertdialogactivity] -->
+
+
+        <!-- [START gcm_initialization] -->
+        <activity
+            android:name="com.raon.im.gcm.InitGcm"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- [END gcm_initialization] -->
+
+
+        <!-- [START gcm_receiver] -->
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.raon.im.gcm" />
+            </intent-filter>
+        </receiver>
+        <!-- [END gcm_receiver] -->
+
+
+        <!-- [START gcm_listener_service] -->
+        <service
+            android:name="com.raon.im.gcm.ImGcmListenerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <!-- [END gcm_listener_service] -->
+
+
+        <!-- [START instanceId_listener_service] -->
+        <service
+            android:name="com.raon.im.gcm.ImInstanceIDListenerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        <!-- [END instanceId_listener_service] -->
+
+
+        <!-- [START gcm_registration_service] -->
+        <service
+            android:name="com.raon.im.gcm.RegistrationIntentService"
+            android:exported="false" />
+        <!--
+             ATTENTION: This was auto-generated to add Google Play services to your project for
+             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+
+        <service
+            android:name="com.raon.im.connection.ConnectIntentService"
+            android:exported="false" >
+        </service>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <!-- [END gcm_registration_service] -->
+
+
+    </application>
+
+</manifest>
